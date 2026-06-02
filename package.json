@@ -1,0 +1,16 @@
+{
+  "name": "interactive-ctn-guagua",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "互动刮刮乐视频：上层动漫、下层真人，滑动刮开、长按看真人、上下切换人物",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2"
+  }
+}

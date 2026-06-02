@@ -1,0 +1,37 @@
+[
+  {
+    "id": "hiroshi",
+    "name": "野原广志",
+    "subtitle": "Hiroshi Nohara",
+    "anime": { "type": "demo" },
+    "real": { "type": "demo" }
+  },
+  {
+    "id": "misae",
+    "name": "野原美冴",
+    "subtitle": "Misae Nohara",
+    "anime": { "type": "demo" },
+    "real": { "type": "demo" }
+  },
+  {
+    "id": "himawari",
+    "name": "野原向日葵",
+    "subtitle": "Himawari Nohara",
+    "anime": { "type": "demo" },
+    "real": { "type": "demo" }
+  },
+  {
+    "id": "shiro",
+    "name": "小白",
+    "subtitle": "Shiro",
+    "anime": { "type": "demo" },
+    "real": { "type": "demo" }
+  },
+  {
+    "id": "kazama",
+    "name": "风间彻",
+    "subtitle": "Toru Kazama",
+    "anime": { "type": "demo" },
+    "real": { "type": "demo" }
+  }
+]
