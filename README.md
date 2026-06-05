@@ -19,11 +19,15 @@ npm run preview  # 预览打包产物
 开箱即跑：默认用程序化占位画面演示全部交互，**无需任何视频文件**。
 
 ## 换成自己的视频
-1. 把两段全屏视频放进 `public/media/`（构图保持一致）。
-2. 在 `public/characters.json` 把对应人物的 `anime`/`real` 改成
-   `{ "type": "video", "src": "media/xxx.mp4" }`。
+每个人物 = 两段构图一致的全屏视频（动漫 + 真人），在 `public/characters.json` 配置。
 
-详见 `public/media/README.md`。
+- **外部链接（推荐）**：视频传图床/OSS/CDN，填完整 https 直链：
+  `{ "type": "video", "src": "https://你的域名/xxx.mp4" }`
+- **放进仓库**：文件丢进 `public/media/`，填相对路径：
+  `{ "type": "video", "src": "media/xxx.mp4" }`
+
+要点：必须 https（否则混合内容被拦）；建议 MP4/H.264；跨域无需 CORS。
+改完推送到 `main` 自动重新部署。详见 `public/media/README.md`。
 
 ## 结构
 - `src/sources.ts` —— 图层源（`VideoSource` / 程序化 `DemoSource`）与 cover 裁剪。
