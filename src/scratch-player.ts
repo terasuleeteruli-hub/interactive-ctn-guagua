@@ -212,9 +212,7 @@ export class ScratchPlayer {
     this.startX = this.lastX = e.clientX;
     this.startY = this.lastY = e.clientY;
     this.moved = false;
-    const p = this.toMask(e.clientX, e.clientY);
-    // 落点先点一下（点按也能刮出一点）
-    if (!this.revealed) this.scratchDot(p.x, p.y);
+    // 不在落点立即刮：长按 / 点按都不应留痕，只有确认为拖动后才刮开。
     this.longPressTimer = window.setTimeout(() => {
       if (!this.moved) this.enterPeek();
     }, this.opts.longPressMs);
@@ -256,10 +254,6 @@ export class ScratchPlayer {
   private exitPeek(): void {
     this.peeking = false;
     this.top.classList.remove("sp-peek");
-  }
-
-  private scratchDot(x: number, y: number): void {
-    this.paint(x, y);
   }
 
   private scratchLine(x0: number, y0: number, x1: number, y1: number): void {

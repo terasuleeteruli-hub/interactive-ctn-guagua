@@ -64,6 +64,14 @@ export interface VideoSourceOptions {
   src: string;
   muted?: boolean;
   loop?: boolean;
+  /**
+   * 仅在显式传入时才设置 video.crossOrigin。
+   * 外部图床 / OSS / CDN 多数不带 CORS 响应头，设了 "anonymous" 会被浏览器
+   * 拒绝加载（黑屏）；本应用从不读取视频 canvas 的像素（只采样 mask），
+   * 所以默认不设、允许任意 https URL 直接播放。仅当你的源带 CORS 且
+   * 需要未污染的 canvas 时才传 "anonymous"。
+   */
+  crossOrigin?: string;
 }
 
 /** 基于 <video> 的图层源（用户真实的动漫 / 真人视频）。 */
@@ -78,7 +86,7 @@ export class VideoSource implements LayerSource {
     v.loop = opts.loop ?? true;
     v.playsInline = true;
     v.preload = "auto";
-    v.crossOrigin = "anonymous";
+    if (opts.crossOrigin != null) v.crossOrigin = opts.crossOrigin;
     // 不显示元素本体，只作为绘制源（保留在 DOM 以便部分浏览器解码）。
     v.style.position = "absolute";
     v.style.width = "1px";
